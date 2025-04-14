@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1><i class="fas fa-book-open"></i> Bookshelf App</h1>
+        <p>Organize your reading journey</p>
+      </div>
+      <div class="header-decoration">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </header>
+
+    <main>
+      <div class="form-section">
+        <section class="add-book">
+          <h2><i class="fas fa-plus-circle"></i> Add New Book</h2>
+          <form id="bookForm" data-testid="bookForm">
+            <div class="form-group">
+              <label for="bookFormTitle"><i class="fas fa-heading"></i> Title</label>
+              <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" placeholder="Enter book title">
+            </div>
+            <div class="form-group">
+              <label for="bookFormAuthor"><i class="fas fa-user-edit"></i> Author</label>
+              <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" placeholder="Enter author name">
+            </div>
+            <div class="form-group">
+              <label for="bookFormYear"><i class="fas fa-calendar-alt"></i> Year</label>
+              <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" placeholder="Publication year">
+            </div>
+            <div class="form-group checkbox-group">
+              <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox">
+              <label for="bookFormIsComplete"><i class="fas fa-check-circle"></i> Finished reading</label>
+            </div>
+            <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton" class="btn-primary">
+              <i class="fas fa-book-medical"></i> Add to Bookshelf
+            </button>
+          </form>
+        </section>
+
+        <section class="search-book">
+          <h2><i class="fas fa-search"></i> Search Book</h2>
+          <form id="searchBook" data-testid="searchBookForm">
+            <div class="form-group">
+              <label for="searchBookTitle"><i class="fas fa-book"></i> Title</label>
+              <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" placeholder="Search by title">
+            </div>
+            <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton" class="btn-secondary">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <div class="books-section">
+        <section class="book-list">
+          <h2><i class="fas fa-bookmark"></i> Unfinished Reading</h2>
+          <div id="incompleteBookList" data-testid="incompleteBookList" class="books-container">
+            <!-- Sample book item -->
+            <div data-bookid="123123123" data-testid="bookItem" class="book-card">
+              <div class="book-cover">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Sample Book Title</h3>
+                <p data-testid="bookItemAuthor"><i class="fas fa-user"></i> Author Name</p>
+                <p data-testid="bookItemYear"><i class="fas fa-calendar"></i> 2023</p>
+              </div>
+              <div class="book-actions">
+                <button data-testid="bookItemIsCompleteButton" class="btn-success">
+                  <i class="fas fa-check"></i> Mark as Read
+                </button>
+                <button data-testid="bookItemDeleteButton" class="btn-danger">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+                <button data-testid="bookItemEditButton" class="btn-warning">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="book-list">
+          <h2><i class="fas fa-check-circle"></i> Finished Reading</h2>
+          <div id="completeBookList" data-testid="completeBookList" class="books-container">
+            <!-- Sample book item -->
+            <div data-bookid="456456456" data-testid="bookItem" class="book-card finished">
+              <div class="book-cover">
+                <i class="fas fa-book"></i>
+                <div class="finished-badge"><i class="fas fa-check"></i></div>
+              </div>
+              <div class="book-info">
+                <h3 data-testid="bookItemTitle">Sample Finished Book</h3>
+                <p data-testid="bookItemAuthor"><i class="fas fa-user"></i> Author Name</p>
+                <p data-testid="bookItemYear"><i class="fas fa-calendar"></i> 2022</p>
+              </div>
+              <div class="book-actions">
+                <button data-testid="bookItemIsCompleteButton" class="btn-success">
+                  <i class="fas fa-undo"></i> Mark Unread
+                </button>
+                <button data-testid="bookItemDeleteButton" class="btn-danger">
+                  <i class="fas fa-trash"></i> Delete
+                </button>
+                <button data-testid="bookItemEditButton" class="btn-warning">
+                  <i class="fas fa-edit"></i> Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2023 Bookshelf App | Made with <i class="fas fa-heart"></i> for book lovers</p>
+    </footer>
+  </body>
+</html>
